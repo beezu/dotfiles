@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo cp /usr/lib64/gnome-shell/libgnome-shell.so /usr/lib64/gnome-shell/libgnome-shell.so.original
+sudo sed -i 's|\x20\x20\x43\x61\x72\x69\x62\x6f\x75\x2e\x44\x69\x73\x70\x6c\x61|\x2f\x2f\x43\x61\x72\x69\x62\x6f\x75\x2e\x44\x69\x73\x70\x6c\x61|g' /usr/lib64/gnome-shell/libgnome-shell.so
