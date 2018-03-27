@@ -1,0 +1,43 @@
+music_directory "$HOME/music"
+playlist_directory "$HOME/.mpd/playlists"
+db_file "$HOME/.mpd/tag_cache"
+log_file "$HOME/.mpd/mpd.log"
+pid_file "$HOME/.mpd/mpd.pid"
+state_file "$HOME/.mpd/mpdstate"
+bind_to_address		"127.0.0.1"
+bind_to_address		"$HOME/.mpd/socket"
+auto_update	"yes"
+password                        "password@read,add,control,admin"
+default_permissions             "read,add,control,admin"
+#
+# Input #######################################################################
+#
+
+input {
+        plugin "curl"
+#       proxy "proxy.isp.com:8080"
+#       proxy_user "user"
+#       proxy_password "password"
+}
+
+audio_output {
+	type		"alsa"
+	name		"default"
+	mixer_type	"software"
+#	device		"hw:0,0"	# optional
+#	mixer_type      "hardware"	# optional
+#	mixer_device	"default"	# optional
+#	mixer_control	"PCM"		# optional
+#	mixer_index	"0"		# optional
+}
+#
+# FIFO setup for cli-visualizer
+audio_output {
+	type		"fifo"
+	name		"my_fifo"
+	path		"/tmp/mpd.fifo"
+	format		"44100:16:2"
+}
+filesystem_charset		"UTF-8"
+#
+###############################################################################

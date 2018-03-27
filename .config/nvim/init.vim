@@ -42,6 +42,10 @@ colorscheme wpgtk                                                               
 let g:airline_theme = 'dark'                                                        "sets the Airline theme
 let g:airline_powerline_fonts = 1                                                   "enables powerline for Airline
 
+" TESTING FFS LOOK OUT
+noremap i <esc>:let x = system('echo 255 > /sys/class/leds/*/brightness')<CR>i
+inoremap <esc> <esc>:let x = system('echo 0 > /sys/class/leds/*/brightness')<CR><esc>
+
 " hotkey bindings
 let mapleader = ","
 nnoremap <leader>d :NERDTreeToggle<cr>
