@@ -68,10 +68,7 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
 bindsym $mod+h split h
-
-# split in vertical orientation
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
@@ -141,8 +138,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'bye' -b 'ok' 'i3-msg exit'"
 bindsym XF86AudioPrev exec "mpc prev"
 bindsym XF86AudioNext exec "mpc next"
 bindsym XF86AudioPlay exec "mpc toggle"
-bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
-bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"
+bindsym XF86AudioRaiseVolume exec "amixer set Master 2%+"
+bindsym XF86AudioLowerVolume exec "amixer set Master 2%-"
 bindsym XF86AudioMute exec "amixer set Master 1+ toggle"
 
 gaps inner 16
@@ -158,16 +155,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 3 px or 3 ppt
+        bindsym k resize grow height 3 px or 3 ppt
+        bindsym l resize shrink height 3 px or 3 ppt
+        bindsym semicolon resize grow width 3 px or 3 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 3 px or 3 ppt
+        bindsym Down resize grow height 3 px or 3 ppt
+        bindsym Up resize shrink height 3 px or 3 ppt
+        bindsym Right resize grow width 3 px or 3 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -184,7 +181,7 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id nm-applet
 
 bindsym $mod+shift+x exec "~/.config/i3/i3lock.sh"
-exec xautolock -time 15 -locker '~/.config/i3/i3lock.sh' &
+exec xautolock -time 1 -locker '~/.config/i3/i3lock.sh' &
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
