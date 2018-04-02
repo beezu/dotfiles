@@ -38,16 +38,20 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = "FiraSans-Hair:fontformat=truetype:size=12:antialias=true;2"
-font-1 = monospace:style=Regular:size=10:antialias=false;2
+font-0 = monospace:size=10;2
+#font-1 = monospace:style=Regular:size=10:antialias=false;2
+#font-2 = '
 
 modules-left = i3 xwindow
 modules-center = mpd
-modules-right =  volume wlan temperature battery date powermenu
+modules-right = volume wlan temperature battery date powermenu
 
-tray-position = none
+tray-position = right
 tray-padding = 10
-tray-background = ${colors.inactive}
+tray-background = ${xrdb:color9}
+tray-detached = false
+tray-transparent = false
+tray-scale = 1.0
 
 [module/xwindow]
 type = internal/xwindow
@@ -55,6 +59,7 @@ format-background = ${colors.active}
 format-foreground = ${colors.foreground}
 format-padding = 2
 label = %title:0:30:...%
+label-maxlen = 30
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -137,13 +142,13 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+icon-prev = 玲
+icon-stop = 栗
+icon-play = 
+icon-pause = 
+icon-next = 怜
 
-label-song-maxlen = 25
+label-song-maxlen = 50
 label-song-ellipsis = true
 
 [module/xbacklight]
