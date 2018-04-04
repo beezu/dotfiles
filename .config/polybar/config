@@ -10,8 +10,8 @@
 [colors]
 background = ${xrdb:color8}
 background-alt = ${xrdb:color0}
-foreground = ${xrdb:color0}
-foreground-alt = ${xrdb:color8}
+foreground = ${xrdb:color15}
+foreground-alt = ${xrdb:color7}
 active = ${xrdb:color4}
 inactive = ${xrdb:color2}
 
@@ -48,7 +48,7 @@ modules-right = volume wlan cpu memory temperature battery date powermenu
 
 tray-position = right
 tray-padding = 10
-tray-background = ${xrdb:color8}
+tray-background = ${xrdb:color4}
 tray-detached = false
 tray-transparent = false
 tray-scale = 1.0
