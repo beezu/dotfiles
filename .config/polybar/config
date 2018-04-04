@@ -9,16 +9,16 @@
 
 [colors]
 background = ${xrdb:color8}
-background-alt = #120B0F
-foreground = ${xrdb:color15}
-foreground-alt = ${xrdb:color15}
-active = #6a8e7a
-inactive = #3c5045
+background-alt = ${xrdb:color0}
+foreground = ${xrdb:color0}
+foreground-alt = ${xrdb:color8}
+active = ${xrdb:color4}
+inactive = ${xrdb:color2}
 
 [bar/wpgtk]
 monitor = eDP-1
 width = 100%
-height = 24
+height = 28
 offset-y = 0%
 radius = 0.0
 fixed-center = false
@@ -44,11 +44,11 @@ font-0 = monospace:size=10;2
 
 modules-left = i3 xwindow
 modules-center = mpd
-modules-right = volume wlan temperature battery date powermenu
+modules-right = volume wlan cpu memory temperature battery date powermenu
 
 tray-position = right
 tray-padding = 10
-tray-background = ${xrdb:color9}
+tray-background = ${xrdb:color8}
 tray-detached = false
 tray-transparent = false
 tray-scale = 1.0
@@ -148,7 +148,7 @@ icon-play = 
 icon-pause = 
 icon-next = 怜
 
-label-song-maxlen = 50
+label-song-maxlen = 40
 label-song-ellipsis = true
 
 [module/xbacklight]
@@ -176,16 +176,20 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
+format-padding = 2
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-font = 2
+format-background = ${colors.inactive}
 label = %percentage%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
+format-padding = 2
 format-prefix-foreground = ${colors.foreground-alt}
+format-background = ${colors.active}
 label = %percentage_used%%
 
 [module/wlan]
@@ -228,8 +232,8 @@ interval = 5
 date =
 date-alt = " %d/%m/%Y"
 
-time = %I:%M %p
-time-alt = %I:%M %p
+time = %H:%M
+time-alt = %H:%M
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
@@ -272,7 +276,7 @@ bar-volume-empty-foreground = ${colors.background}
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-full-at = 100
+full-at = 98
 
 format-padding = 2
 
@@ -303,8 +307,8 @@ format-discharging-background = ${colors.inactive}
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
-warn-temperature = 50
+thermal-zone = 5
+warn-temperature = 65
 
 format = <label>
 format-warn = <label-warn>
@@ -336,10 +340,10 @@ menu-0-1-exec = menu-open-2
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
-menu-1-1-exec = reboot
+menu-1-1-exec = systemctl reboot
 
 menu-2-0 = power off
-menu-2-0-exec = poweroff
+menu-2-0-exec = systemctl poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
