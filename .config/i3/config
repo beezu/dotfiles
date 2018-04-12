@@ -175,8 +175,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# network-manager
+# network-manager applet
 exec --no-startup-id nm-applet
+# blueman applet
+exec --no-startup-id blueman-applet
 
 bindsym $mod+shift+x exec "~/.config/i3/i3lock.sh"
 exec xautolock -time 6 -locker '~/.config/i3/i3lock.sh' &
