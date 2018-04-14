@@ -19,8 +19,10 @@ alias wq='wmctrl -r "Alacritty" -b toggle,fullscreen'
 
 #docker aliases
 alias weechat='docker start weechat && docker attach weechat'
-alias rain='docker run --rm --log-driver none -it beezu/matrix-rain ; source ~/.zshrc' #kills wpgtk theming on exit, source fixes
 alias colorpuke='docker run --rm --log-driver none -it beezu/colorpuke ; clear' #clears at end to remove leftover colors
+alias rain='docker run --rm --log-driver none -it beezu/matrix-rain ; source ~/.zshrc' #kills wpgtk theming on exit, source fixes
+alias cmatrix='docker run --rm --log-driver none -it beezu/cmatrix'
+alias pmatrix='docker run --rm --log-driver none -it beezu/pmatrix'
 
 #xrandr rotation aliases
 alias sright='xrandr --output eDP-1 --rotation right'
