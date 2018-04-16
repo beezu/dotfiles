@@ -1,9 +1,8 @@
 #!/bin/bash
 
+BRIGHTSTEPS=20 #number of button presses to go from min to max, must divide evenly into MAXBRIGHT
 CURRENTBRIGHT=$(cat /sys/class/backlight/intel_backlight/actual_brightness)
 MAXBRIGHT=$(cat /sys/class/backlight/intel_backlight/max_brightness)
-BRIGHTSTEPS=$(expr $MAXBRIGHT / 20)
+BRIGHTINTERVAL=$(expr $MAXBRIGHT / $BRIGHTSTEPS)
 
-echo $(expr $CURRENTBRIGHT - $BRIGHTSTEPS) > /sys/class/backlight/intel_backlight/brightness
-
-echo - > /sys/class/backlight/intel_backlight/brightness
+echo $(expr $CURRENTBRIGHT - $BRIGHTINTERVAL) > /sys/class/backlight/intel_backlight/brightness

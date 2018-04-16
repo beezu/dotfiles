@@ -22,3 +22,4 @@ sudo chmod 644 -Rv /etc/acpi/events/brightup
 
 #restarts acpid to allow modifications to take effect
 sudo systemctl restart acpid.service
+echo "restarted acpid.service"
