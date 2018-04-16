@@ -35,6 +35,9 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 bindsym $mod+t exec alacritty
 
+#misc application binds
+bindsym $mod+c exec chromium
+bindsym $mod+x exec firefox
 # kill focused window
 bindsym $mod+q kill
 
@@ -181,10 +184,13 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 
 bindsym $mod+shift+x exec "~/.config/i3/i3lock.sh"
-exec xautolock -time 6 -locker '~/.config/i3/i3lock.sh' &
+exec --no-startup-id xautolock -time 6 -locker '~/.config/i3/i3lock.sh' &
 
 # polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
+
+#disable caps lock, set it to left ctrl
+exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

@@ -15,7 +15,7 @@ sudo tee -a /usr/local/bin/hddled.sh << EOF
 #!/bin/bash
 
 # Check interval seconds
-CHECKINTERVAL=0.1
+CHECKINTERVAL=0.2
 
 # console
 CONSOLE=/dev/console
