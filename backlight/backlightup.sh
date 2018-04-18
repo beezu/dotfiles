@@ -7,7 +7,7 @@ BRIGHTINTERVAL=$(expr $MAXBRIGHT / $BRIGHTSTEPS)
 
 if [ "$(expr $MAXBRIGHT - $CURRENTBRIGHT)" -lt "$BRIGHTINTERVAL" ]
 then
-	echo $MAXBRIGHT > /sys/class/backlight/intel_backlight/brightness
+  echo $MAXBRIGHT > /sys/class/backlight/intel_backlight/brightness
 else
-	echo $(expr $CURRENTBRIGHT + $BRIGHTINTERVAL) > /sys/class/backlight/intel_backlight/brightness
+  echo $(expr $CURRENTBRIGHT + $BRIGHTINTERVAL) > /sys/class/backlight/intel_backlight/brightness
 fi	

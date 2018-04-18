@@ -9,11 +9,14 @@
 # Launch bar1 and bar2
 #polybar base &
 
-if ! pgrep -x polybar; then
-	polybar wpgtk &
-else
-	pkill -USR1 polybar
-fi
+##if ! pgrep -x polybar; then
+##	polybar wpgtk &
+##else
+##	pkill -USR1 polybar
+##fi
+##
+##echo "Bars launched..."
 
-echo "Bars launched..."
-
+killall -q polybar
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+polybar -c ~/.config/polybar/config wpgtk &

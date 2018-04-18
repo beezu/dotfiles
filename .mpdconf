@@ -31,7 +31,7 @@ audio_output {
 #	mixer_index	"0"		# optional
 }
 #
-# FIFO setup for cli-visualizer
+# FIFO for cli visualizers
 audio_output {
 	type		"fifo"
 	name		"my_fifo"
