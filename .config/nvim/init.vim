@@ -25,6 +25,12 @@ set nu                                                                          
 " Adds support for leaving insert mode with jj
 inoremap jj <Esc>
 
+set ts=2 sw=2 et
+set autoindent
+set smartindent
+set smarttab
+set softtabstop=4
+
 " Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'deviantfero/wpgtk.vim'                                                        "wpgtk color support
