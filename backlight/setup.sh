@@ -1,4 +1,8 @@
 #!/bin/bash
+#This method of changing brightness relies on acpid
+
+sudo systemctl enable acpid.service
+sudo systemctl start acpid.service
 
 #copies scripts to /usr/local/bin
 sudo cp -v backlightdown.sh /usr/local/bin/

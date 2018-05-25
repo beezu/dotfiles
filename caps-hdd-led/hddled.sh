@@ -1,19 +1,5 @@
 #!/bin/bash
 
-sudo tee -a /etc/systemd/hddled.service << EOF
-[Unit]
-After=network.service
-
-[Service]
-ExecStart=/usr/local/bin/hddled.sh
-
-[Install]
-WantedBy=default.target
-EOF
-
-sudo tee -a /usr/local/bin/hddled.sh << EOF
-#!/bin/bash
-
 # Check interval seconds
 CHECKINTERVAL=0.2
 
@@ -52,10 +38,3 @@ while [ 1 ] ; do
   fi
   OLD=$NEW  
 done
-EOF
-
-sudo chmod 744 /usr/local/bin/hddled.sh
-sudo chmod 664 /etc/systemd/system/hddled.service
-systemctl daemon-reload
-systemctl enable hddled.service
-systemctl start hddled.service
