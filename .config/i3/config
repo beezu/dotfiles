@@ -125,8 +125,6 @@ bindsym XF86AudioRaiseVolume exec "amixer set Master 2%+"
 bindsym XF86AudioLowerVolume exec "amixer set Master 2%-"
 bindsym XF86AudioMute exec "amixer set Master 1+ toggle"
 
-exec --no-startup-id "compton -b --config ~/.config/compton.conf"
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -153,10 +151,17 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # blueman applet
-exec --no-startup-id blueman-applet
+#exec --no-startup-id blueman-applet
 
 bindsym $mod+shift+x exec "~/.config/i3/i3lock.sh"
 exec --no-startup-id xautolock -time 6 -locker '~/.config/i3/i3lock.sh'
+
+#enable tap to click for my Dell Touchpad
+exec --no-startup-id xinput set-prop 12 276 1
+
+gaps inner 4
+gaps outer 0
+smart_gaps on
 
 #disable caps lock, set it to left ctrl
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
