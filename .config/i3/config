@@ -165,3 +165,6 @@ smart_gaps on
 
 #disable caps lock, set it to left ctrl
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
+
+exec --no-startup-id xinput set-prop 12 296 {1 1}
+exec --no-startup-id xinput set-prop 12 280 1

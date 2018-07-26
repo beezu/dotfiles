@@ -42,9 +42,9 @@ Plug 'junegunn/fzf.vim'                                                         
 Plug 'morhetz/gruvbox'
 call plug#end()
 
-"set termguicolors                                                                  " leaving commented due to no wpgtk theming support in 24bit
-
-colorscheme wpgtk
+colorscheme gruvbox
+set background=dark
+set termguicolors
 
 let g:airline_theme = 'dark'                                                        "sets the Airline theme
 let g:airline_powerline_fonts = 1                                                   "enables powerline for Airline
