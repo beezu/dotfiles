@@ -24,13 +24,10 @@ audio_output {
 	type		"alsa"
 	name		"default"
 	mixer_type	"software"
-#	device		"hw:0,0"	# optional
-#	mixer_type      "hardware"	# optional
-#	mixer_device	"default"	# optional
-#	mixer_control	"PCM"		# optional
-#	mixer_index	"0"		# optional
+  buffer_time   "200000"
 }
 #
+
 # FIFO for cli visualizers
 audio_output {
 	type		"fifo"
@@ -38,6 +35,21 @@ audio_output {
 	path		"/tmp/mpd.fifo"
 	format		"44100:16:2"
 }
+
+#icecast for streaming
+#audio_output {
+#  type  "shout"
+#  name  "shout"
+#  description   "shouting"
+#  host  "localhost"
+#  port  "8000"
+#  mount "/home/bee/Music"
+#  password  "dootdoot"
+#  bitrate   "128"
+#  format    "44100:16:2"
+#  encoding  "mp3"
+#}
+
 filesystem_charset		"UTF-8"
 #
 ###############################################################################
