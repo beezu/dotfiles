@@ -1,4 +1,4 @@
-music_directory "~/Music"
+music_directory "/Users/bee/Music/my-music"
 playlist_directory "~/.mpd/playlists"
 db_file "~/.mpd/tag_cache"
 log_file "~/.mpd/mpd.log"
@@ -9,6 +9,7 @@ bind_to_address		"~/.mpd/socket"
 auto_update	"yes"
 password                        "password@read,add,control,admin"
 default_permissions             "read,add,control,admin"
+max_playlist_length "9999"
 #
 # Input #######################################################################
 #
@@ -21,33 +22,20 @@ input {
 }
 
 audio_output {
-	type		"alsa"
-	name		"default"
+	type		"osx"
+	name		"CoreAudio"
 	mixer_type	"software"
-  buffer_time   "200000"
 }
 #
 
 # FIFO for cli visualizers
-audio_output {
-	type		"fifo"
-	name		"my_fifo"
-	path		"/tmp/mpd.fifo"
-	format		"44100:16:2"
-}
-
-#icecast for streaming
 #audio_output {
-#  type  "shout"
-#  name  "shout"
-#  description   "shouting"
-#  host  "localhost"
-#  port  "8000"
-#  mount "/home/bee/Music"
-#  password  "dootdoot"
-#  bitrate   "128"
-#  format    "44100:16:2"
-#  encoding  "mp3"
+#	type		"fifo"
+#	name		"my_fifo"
+#	path		"/tmp/mpd.fifo"
+#	format		"44100:16:2"
+#  auto_resample "no"
+#  use_mmap "yes"
 #}
 
 filesystem_charset		"UTF-8"
