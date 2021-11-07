@@ -9,10 +9,10 @@ window:
   # Window dimensions in character columns and lines
   # Falls back to size specified by window manager if set to 0x0.
   # (changes require restart)
-  opacity: 0.6
+  opacity: 0.8
   dimensions:
-    columns: 80
-    lines: 24
+    columns: 120
+    lines: 40
 
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
@@ -23,8 +23,8 @@ window:
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
-  decorations: full
-
+  decorations: transparent
+  startup_mode: Windowed
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
 
