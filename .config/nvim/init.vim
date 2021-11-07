@@ -20,7 +20,7 @@ vmap l <down>
 vmap k <up>
 vmap j <left>
 
-set nu                                                                              "enable line numbers
+set nu "enable line numbers
 
 " Adds support for leaving insert mode with jj
 inoremap jj <Esc>
@@ -33,23 +33,24 @@ set softtabstop=4
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'deviantfero/wpgtk.vim'                                                        "wpgtk color support
-Plug 'scrooloose/nerdtree'                                                          "NerdTree folder browser
-Plug 'bling/vim-airline'                                                            "Powerline vim statusbar
-Plug 'vim-airline/vim-airline-themes'                                               "Theming support for Airline
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }                   "Adds search functionality
-Plug 'junegunn/fzf.vim'                                                             "Adds ag search
-Plug 'morhetz/gruvbox'
+"Plug 'deviantfero/wpgtk.vim'                           "wpgtk color support
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "NerdTree folder browser
+Plug 'bling/vim-airline'                                "Powerline vim statusbar
+Plug 'vim-airline/vim-airline-themes'                   "For themes, see https://github.com/vim-airline/vim-airline/wiki/Screenshots
+Plug 'morhetz/gruvbox'                                  "Gruvbox theme
 call plug#end()
 
 colorscheme gruvbox
 set background=dark
 set termguicolors
 
-let g:airline_theme = 'dark'                                                        "sets the Airline theme
-let g:airline_powerline_fonts = 1                                                   "enables powerline for Airline
+let g:airline_theme = 'gruvbox'   "sets the Airline theme
+let g:airline_powerline_fonts = 1 "enables powerline for Airline
 
 " hotkey bindings
 let mapleader = ","
 nnoremap <leader>d :NERDTreeToggle<cr>
-nnoremap <leader>a :Ag<cr>
+nnoremap <leader>r :set paste<cr>
+nnoremap <leader>e :set nopaste<cr>
+nnoremap <leader>v :vsp<cr>
+nnoremap <leader>h :sp<cr>
