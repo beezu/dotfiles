@@ -46,9 +46,7 @@ brew "wifi-password"
 brew "youtube-dl"
 cask "background-music"
 cask "powershell"
-mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "OneDrive", id: 823766827
 mas "Steam Link", id: 1246969117
-mas "Telegram", id: 747648890
