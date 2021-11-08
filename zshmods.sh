@@ -7,8 +7,9 @@ tee -a ~/.zshrc << EOF
 
 export EDITOR='nvim'
 
-#allows wpgtk to apply to new terms
-#(cat $HOME/.config/wpg/sequences &)
+export HOMEBREW_PREFIX="/opt/homebrew"
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+export HOMEBREW_NO_ANALYTICS=1
 
 #ncmpcpp loses wpgtk theming on resize (outside of tmux), source fixes
 #alias ncmpcpp='ncmpcpp ; source ~/.zshrc'
@@ -20,7 +21,7 @@ alias vim='nvim'
 #alias wq='wmctrl -r "Alacritty" -b toggle,fullscreen'
 
 #docker aliases
-alias colorpuke='docker run --rm --log-driver none -it beezu/colorpuke ; clear' #clears at end to remove leftover colors
+alias colorpuke-docker='docker run --rm --log-driver none -it beezu/colorpuke ; clear' #clears at end to remove leftover colors
 alias rain='docker run --rm --log-driver none -it beezu/matrix-rain ; source ~/.zshrc' #kills wpgtk theming on exit, source fixes
 alias cmatrix='docker run --rm --log-driver none -it beezu/cmatrix'
 alias pmatrix='docker run --rm --log-driver none -it beezu/pmatrix'
