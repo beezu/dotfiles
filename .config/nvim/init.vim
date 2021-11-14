@@ -52,5 +52,5 @@ let mapleader = ","
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <leader>r :set paste<cr>
 nnoremap <leader>e :set nopaste<cr>
-nnoremap <leader>v :vsp<cr>
-nnoremap <leader>h :sp<cr>
+nnoremap <leader>v :vnew<cr>
+nnoremap <leader>h :new<cr>
