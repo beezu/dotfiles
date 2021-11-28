@@ -1,14 +1,17 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
-brew "archey"
+brew "libpng"
 brew "cabextract"
+brew "gettext"
 brew "python@3.9"
 brew "cmake"
 brew "dark-mode"
 brew "darksky-weather"
+brew "libtool"
 brew "harfbuzz"
 brew "ffmpeg"
 brew "fftw"
@@ -33,6 +36,7 @@ brew "nmap"
 brew "nyancat"
 brew "pipes-sh"
 brew "pwgen"
+brew "ragel"
 brew "showkey"
 brew "spaceinvaders-go"
 brew "speedtest-cli"
@@ -45,8 +49,10 @@ brew "whois"
 brew "wifi-password"
 brew "youtube-dl"
 cask "background-music"
-cask "powershell"
+mas "AdGuard for Safari", id: 1440147259
 mas "iMovie", id: 408981434
+mas "Keeper Password Manager", id: 414781829
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "OneDrive", id: 823766827
 mas "Steam Link", id: 1246969117
+mas "Telegram", id: 747648890
