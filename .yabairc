@@ -42,25 +42,25 @@ yabai -m config mouse_action2                resize
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config bottom_padding               2
-yabai -m config left_padding                 2
-yabai -m config right_padding                2
-yabai -m config window_gap                   2
+yabai -m config bottom_padding               5
+yabai -m config left_padding                 5
+yabai -m config right_padding                5
+yabai -m config top_padding                  5
+yabai -m config window_gap                   4
 
-# float system preferences
+# float preferences
 yabai -m rule --add app='^System Information$' manage=off
 yabai -m rule --add app='^System Preferences$' manage=off
 yabai -m rule --add title='Preferences$' manage=off
-
-# float settings windows
 yabai -m rule --add title='Settings$' manage=off
-
-# float Parallels & Steam
 yabai -m rule --add title='Parallels Desktop$' manage=off
 yabai -m rule --add title='Control Center$' manage=off
 yabai -m rule --add title='Steam$' manage=off
 yabai -m rule --add title='Friends List$' manage=off
 yabai -m rule --add title='Steam Client Webhelper$' manage=off
+yabai -m rule --add title='MiniPlayer$' manage=off
+yabai -m rule --add title='Keeper Desktop Applet$' manage=off
+yabai -m rule --add title='Microsoft Remote Desktop$' manage=off
 
 # leave room for Spacebar
 yabai -m config external_bar all:26:0
