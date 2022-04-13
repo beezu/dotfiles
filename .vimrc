@@ -53,3 +53,6 @@ let g:airline_powerline_fonts = 1                                               
 let mapleader = ","
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <leader>a :Ag<cr>
+
+" move swapfile to RAM
+set directory=/dev/shm
