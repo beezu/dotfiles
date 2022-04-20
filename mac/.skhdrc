@@ -50,10 +50,10 @@ cmd + shift - 0 : yabai -m window --space 10
 alt - q : yabai -m window --close
 
 # enter fullscreen mode for the focused container
-cmd - f : yabai -m window --toggle zoom-fullscreen
+alt - f : yabai -m window --toggle zoom-fullscreen
 
 # toggle window native fullscreen
-cmd + shift - f : yabai -m window --toggle native-fullscreen
+alt + shift - f : yabai -m window --toggle native-fullscreen
 
 # open Alacritty via hotkey
 cmd - return : open -n /Applications/Alacritty.app
