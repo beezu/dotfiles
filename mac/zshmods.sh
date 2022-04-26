@@ -15,6 +15,7 @@ bindkey "^[[1;5D" backward-word
 
 # Set default editor
 export EDITOR='nvim'
+alias vi='nvim'
 alias vim='nvim'
 
 # Configure Homebrew variables
@@ -26,8 +27,8 @@ alias x11='open -a XQuartz && xhost + $IP'
 IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
 
 # Docker aliases
-alias colorpuke-docker='docker run --rm --log-driver none -it beezu/colorpuke ; clear' #clears at end to remove leftover colors
-alias rain='docker run --rm --log-driver none -it beezu/matrix-rain ; source ~/.zshrc' #kills wpgtk theming on exit, source fixes
+alias colorpuke-docker='docker run --rm --log-driver none -it beezu/colorpuke
+alias rain='docker run --rm --log-driver none -it beezu/matrix-rain
 alias cmatrix='docker run --rm --log-driver none -it beezu/cmatrix'
 alias pmatrix='docker run --rm --log-driver none -it beezu/pmatrix'
 alias ps='sudo pwsh'
