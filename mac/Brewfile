@@ -38,3 +38,5 @@ cask "background-music"
 cask "powershell"
 cask "vlc"
 cask "xquartz"
+# Install Hasklug Nerd Font with \
+# brew install --cask font-hasklug-nerd-font
