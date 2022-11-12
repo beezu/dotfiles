@@ -43,6 +43,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "NerdTree folder browser
 Plug 'bling/vim-airline'                                "Powerline vim statusbar
 Plug 'vim-airline/vim-airline-themes'                   "For themes, see https://github.com/vim-airline/vim-airline/wiki/Screenshots
 Plug 'morhetz/gruvbox'                                  "Gruvbox theme
+Plug 'rust-lang/rust.vim'                               "Rust integrations
 call plug#end()
 
 colorscheme gruvbox
