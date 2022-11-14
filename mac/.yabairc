@@ -14,11 +14,6 @@
 # sudo yabai --load-sa
 # yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
-#!/usr/bin/env sh
-
-# bar settings
-yabai -m config top_padding 0
-
 # global settings
 yabai -m config mouse_follows_focus          off
 yabai -m config focus_follows_mouse          autofocus
@@ -28,7 +23,7 @@ yabai -m config window_topmost               off
 
 yabai -m config window_opacity               off
 yabai -m config window_opacity_duration      0.0
-yabai -m config window_shadow                on
+yabai -m config window_shadow                off
 
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        0.90
@@ -51,6 +46,7 @@ yabai -m config window_gap                   4
 # float preferences
 yabai -m rule --add app='^System Information$' manage=off
 yabai -m rule --add app='^System Preferences$' manage=off
+yabai -m rule --add app='^System Settings$' manage=off
 yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add title='Settings$' manage=off
 yabai -m rule --add title='Parallels Desktop$' manage=off
@@ -61,6 +57,10 @@ yabai -m rule --add title='Steam Client Webhelper$' manage=off
 yabai -m rule --add title='MiniPlayer$' manage=off
 yabai -m rule --add title='Keeper Desktop Applet$' manage=off
 yabai -m rule --add title='Microsoft Remote Desktop$' manage=off
+yabai -m rule --add title='Picture-in-Picture$' manage=off
+yabai -m rule --add title='Copy$' manage=off
+yabai -m rule --add title='Free Memory$' manage=off
+yabai -m rule --add title='Virtual Machine Library$' manage=off
 
 # leave room for Spacebar
 yabai -m config external_bar all:26:0
