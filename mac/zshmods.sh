@@ -26,6 +26,9 @@ export HOMEBREW_NO_ANALYTICS=1
 alias x11='open -a XQuartz && xhost + $IP'
 IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
 
+Set FZF to use Ag search
+export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
+
 # Docker aliases
 alias colorpuke-docker='docker run --rm --log-driver none -it beezu/colorpuke
 alias rain='docker run --rm --log-driver none -it beezu/matrix-rain

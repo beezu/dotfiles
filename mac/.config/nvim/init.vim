@@ -14,14 +14,14 @@ endif
 " Disable mouse
 set mouse=
 
-" Normal Mode - Set arrow keys to homerow, swap up and down, unmap h
+" Normal Mode - Set arrow keys to home row, swap up and down, unmap h
 nmap ; <right>
 nmap l <down>
 nmap k <up>
 nmap j <left>
 nmap h <nop>
 
-" Visual Mode - Set arrow keys to homerow, swap up and down, unmap h
+" Visual Mode - Set arrow keys to home row, swap up and down, unmap h
 vmap ; <right>
 vmap l <down>
 vmap k <up>
@@ -31,8 +31,9 @@ vmap h <nop>
 " Enable line numbers
 set nu 
 
-" Adds support for leaving insert mode with jj
+" Adds support for leaving insert/command mode with jj
 inoremap jj <Esc>
+cnoremap jj <Esc>
 
 " Indent and tab settings
 set ts=2 sw=2 et
@@ -43,13 +44,14 @@ set softtabstop=4
 
 " Plugins
 call plug#begin()
-Plug 'junegunn/vim-plug'                        " Adds help info to Vim for Plug
-Plug 'scrooloose/nerdtree'                      " NerdTree folder browser
-Plug 'bling/vim-airline'                        " Powerline vim statusbar
-Plug 'vim-airline/vim-airline-themes'           " For themes, see https://github.com/vim-airline/vim-airline/wiki/Screenshots
-Plug 'morhetz/gruvbox'                          " Gruvbox theme
-Plug 'vim-syntastic/syntastic', { 'on': [] }    " Syntax error highlighting in code, lazy load
-Plug 'rust-lang/rust.vim', { 'on': [] }         " Rust IDE Integrations, lazy load
+Plug 'junegunn/vim-plug'                                " Adds help info to Vim for Plug
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle' }   " NerdTree folder browser
+Plug 'morhetz/gruvbox'                                  " Gruvbox theme
+Plug 'bling/vim-airline'                                " Powerline vim statusbar
+Plug 'vim-airline/vim-airline-themes'                   " For themes, see https://github.com/vim-airline/vim-airline/wiki/Screenshots
+Plug 'junegunn/fzf', {'do': { -> fzf#install() } }      " Fuzzy finder search
+Plug 'vim-syntastic/syntastic', { 'on': [] }            " Syntax error highlighting in code, lazy load
+Plug 'rust-lang/rust.vim', { 'on': [] }                 " Rust IDE Integrations, lazy load
 call plug#end()
 
 " Load IDE-related plugins lazily
@@ -72,11 +74,10 @@ set termguicolors
 
 " Hotkey bindings
 let mapleader = ","
+nnoremap <Leader>f :FZF<cr>
 nnoremap <leader>d :NERDTreeToggle<cr>
-nnoremap <leader>r :set paste<cr>
-nnoremap <leader>e :set nopaste<cr>
-nnoremap <leader>v :vnew<cr>
 nnoremap <leader>h :new<cr>
+nnoremap <leader>v :vnew<cr>
 nnoremap <leader>u :PlugUpdate <Bar> PlugUpgrade<cr>
 
 " Move swapfile to tmp
