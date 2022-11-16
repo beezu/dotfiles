@@ -49,6 +49,7 @@ Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle' }   " NerdTree folder browse
 Plug 'morhetz/gruvbox'                                  " Gruvbox theme
 Plug 'bling/vim-airline'                                " Powerline vim statusbar
 Plug 'vim-airline/vim-airline-themes'                   " For themes, see https://github.com/vim-airline/vim-airline/wiki/Screenshots
+Plug 'mileszs/ack.vim'                                  " Ack search
 Plug 'junegunn/fzf', {'do': { -> fzf#install() } }      " Fuzzy finder search
 Plug 'vim-syntastic/syntastic', { 'on': [] }            " Syntax error highlighting in code, lazy load
 Plug 'rust-lang/rust.vim', { 'on': [] }                 " Rust IDE Integrations, lazy load
@@ -69,11 +70,20 @@ set background=dark
 let g:airline_theme = 'gruvbox'
 let g:airline_powerline_fonts = 1
 
+" Use Ag search with Ack plugin, if available
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep --hidden'
+endif
+
+" Don't jump to first result in Ack
+cnoreabbrev Ack Ack!
+
 " Enable full RGB support
 set termguicolors
 
 " Hotkey bindings
 let mapleader = ","
+nnoremap <Leader>a :Ack!<Space>
 nnoremap <Leader>f :FZF<cr>
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <leader>h :new<cr>
@@ -82,6 +92,3 @@ nnoremap <leader>u :PlugUpdate <Bar> PlugUpgrade<cr>
 
 " Move swapfile to tmp
 set directory=/tmp
-
-" Disable swapfile entirely
-"set noswapfile
