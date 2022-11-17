@@ -39,13 +39,14 @@ keymap("n", "h", "<Nop>", opts)
 keymap("n", "<C-j>", "<C-w>h", opts)
 keymap("n", "<C-l>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-F2>", "<C-w>l", opts)   -- Bound terminal to treat ctrl+semicolon as ctrl+f2
+-- vim.cmd "nnoremap \\[1;5Q <C-w>l" -- lua method breaks after closing and reopening nvim
+keymap("n", "\\[1;5Q", "<C-w>l", opts)   -- Bound terminal to treat ctrl+semicolon as ctrl+f2
 
 -- Resize with arrows
--- keymap("n", "<C-Up>", ":resize -2<CR>", opts)
--- keymap("n", "<C-Down>", ":resize +2<CR>", opts)
--- keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
--- keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Up>", ":resize +2<CR>", opts)
+keymap("n", "<C-Down>", ":resize -2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
