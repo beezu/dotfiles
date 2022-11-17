@@ -81,7 +81,7 @@ ipc_socket: false
 mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
-  hide_when_typing: true
+  hide_when_typing: false
   enabled:
    - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
   #           [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
@@ -190,6 +190,14 @@ key_bindings:
   - { key: Left,           mods: Alt,                        chars: "\x1bb"                }
   - { key: Right,          mods: Alt,                        chars: "\x1bf"                }
   - { key: 41,             mods: Control,                    chars: "\\[1;5Q"              } # set ctrl+semicolon to ctrl+f2 for vim panel switch binding
+  - { key: H,              mods: Alt,                        chars: "\x1bh"                }
+  - { key: H,              mods: Shift|Alt,                  chars: "\x1bH"                }
+  - { key: J,              mods: Alt,                        chars: "\x1bj"                }
+  - { key: J,              mods: Shift|Alt,                  chars: "\x1bJ"                }
+  - { key: K,              mods: Alt,                        chars: "\x1bk"                }
+  - { key: K,              mods: Shift|Alt,                  chars: "\x1bK"                }
+  - { key: L,              mods: Alt,                        chars: "\x1bl"                }
+  - { key: L,              mods: Shift|Alt,                  chars: "\x1bH"                }
 debug:
   render_timer: false
   persistent_logging: false
