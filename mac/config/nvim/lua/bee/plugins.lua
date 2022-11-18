@@ -60,8 +60,10 @@ return packer.startup(function(use)
 	use {"folke/which-key.nvim"} -- Keybind helper for commands you're typing
 
 	-- Colorschemes
-  -- use { "morhetz/gruvbox" }
   use { "EdenEast/nightfox.nvim" }
+
+  -- Statusline
+  use { 'feline-nvim/feline.nvim' }
 
 	-- Cmp 
   use { "hrsh7th/nvim-cmp" } -- The completion plugin
