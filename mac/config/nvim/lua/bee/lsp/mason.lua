@@ -7,6 +7,8 @@ local servers = {
 	-- "bashls",
 	"jsonls",
 	-- "yamlls",
+  "rust_analyzer",
+  "powershell_es",
 }
 
 local settings = {

@@ -8,7 +8,19 @@ if not snip_status_ok then
   return
 end
 
+local rust_status_ok, rust_analyzer = pcall(require, "rust_analyzer")
+if not rust_status_ok then
+  return
+end
+
+local pwsh_status_ok, powershell_es = pcall(require, "powershell_es")
+if not pwsh_status_ok then
+  return
+end
+
 require("luasnip/loaders/from_vscode").lazy_load()
+
+require("lspconfig.rust_analyzer.setup({})").lazy_load()
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1
@@ -103,8 +115,9 @@ cmp.setup {
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         nvim_lua = "[Nvim-Lua]",
-        crates = "[Rust]",
+        rust_analyzer = "[Rust]",
         luasnip = "[Snippet]",
+        powershell_es = "pwsh",
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]
@@ -112,8 +125,9 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = "nvim_lsp", priority=5, max_item_count = 5 },
-    { name = "crates", priority = 4, max_item_count = 5},
+    { name = "nvim_lsp", priority= 5, max_item_count = 5 },
+    { name = "powershell_es", priority = 2, max_item_count = 5 },
+    { name = "rust_analyzer", priority = 4, max_item_count = 5 },
     { name = "nvim_lua", priority = 2, max_item_count = 5 },
     { name = "luasnip", priority = 3, max_item_count = 3},
     { name = "buffer", priority = 4, max_item_count = 3 },
