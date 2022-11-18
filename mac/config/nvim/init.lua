@@ -1,2 +1,6 @@
 require "bee.options"
 require "bee.keymaps"
+require "bee.plugins"
+require "bee.colorscheme"
+require "bee.cmp"
+require "bee.lsp"

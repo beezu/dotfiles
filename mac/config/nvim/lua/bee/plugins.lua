@@ -26,7 +26,7 @@ vim.cmd([[
 -- Use protected call to avoid error on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-  vim.notify "Packer not found"
+  print("Packer not found")
 	return
 end
 
@@ -39,7 +39,7 @@ packer.init({
 	},
 })
 
--- Plugins here
+-- Plugins
 return packer.startup(function(use)
   use { "wbthomason/packer.nvim" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
@@ -55,21 +55,28 @@ return packer.startup(function(use)
   use { "akinsho/toggleterm.nvim" } -- Allows persistent and toggle-able terminals within nvim
   use { "ahmedkhalf/project.nvim" } -- Project management? Telescope integration too
   use { "lewis6991/impatient.nvim" } -- Speeds up loading nvim lua modules
-  use { "lukas-reineke/indent-blankline.nvim" }
-  use { "goolord/alpha-nvim" }
-	use {"folke/which-key.nvim"}
+  use { "lukas-reineke/indent-blankline.nvim" } -- Auto indents lines, even blank ones
+  use { "goolord/alpha-nvim" } -- Greeter for nvim
+	use {"folke/which-key.nvim"} -- Keybind helper for commands you're typing
 
 	-- Colorschemes
-  use { "folke/tokyonight.nvim" }
-  use { "lunarvim/darkplus.nvim" }
+  -- use { "morhetz/gruvbox" }
+  use { "EdenEast/nightfox.nvim" }
 
 	-- Cmp 
   use { "hrsh7th/nvim-cmp" } -- The completion plugin
   use { "hrsh7th/cmp-buffer" } -- buffer completions
   use { "hrsh7th/cmp-path" } -- path completions
+  use { "hrsh7th/cmp-cmdline" } -- cmdline completions
 	use { "saadparwaiz1/cmp_luasnip" } -- snippet completions
-	use { "hrsh7th/cmp-nvim-lsp" }
-	use { "hrsh7th/cmp-nvim-lua" }
+	use { "hrsh7th/cmp-nvim-lsp" } -- for lsp
+	use { "hrsh7th/cmp-nvim-lua" } -- for lsp
+  use { "saecki/crates.nvim",
+    event = { "BufRead Cargo.toml" },
+    config = function()
+      require('crates').setup()
+    end,
+  } -- rust completions
 
 	-- Snippets
   use { "L3MON4D3/LuaSnip" } --snippet engine
@@ -80,16 +87,20 @@ return packer.startup(function(use)
   use { "williamboman/mason.nvim"} -- simple to use language server installer
   use { "williamboman/mason-lspconfig.nvim" }
 	use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
-  use { "RRethy/vim-illuminate" }
+  use { "RRethy/vim-illuminate" } -- Highlights other uses of word for LSP
 
-	-- Telescope
-	use { "nvim-telescope/telescope.nvim" }
+	-- Search-related plugins
+	use { "nvim-telescope/telescope.nvim" } -- list FZF
+  use { "mileszs/ack.vim" } -- Ack search
+  use { "junegunn/fzf",
+    run = "./install",
+  } -- Classic FZF search
 
 	-- Treesitter
-	use {	"nvim-treesitter/nvim-treesitter" }
+	use {	"nvim-treesitter/nvim-treesitter" } -- better command highlighting
 
 	-- Git
-	use { "lewis6991/gitsigns.nvim" }
+	use { "lewis6991/gitsigns.nvim" } -- git decorations in nvim
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

@@ -5,20 +5,23 @@ local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
-local leadermap = vim.keymap.set
 
---Map comma as leader key
+-- Map comma as leader key
 -- keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
+-- Ag plugin setting
+vim.g.ackprg = "ag --vimgrep --hidden"
+
 -- Leader keys
 vim.cmd "nnoremap <leader>a :Ack!<Space>" -- lua method requires <cr> after every cmd
-leadermap("n", "<leader>f", "<cmd>FZF<cr>")
-leadermap("n", "<leader>d", "<cmd>NERDTreeToggle<cr>")
-leadermap("n", "<leader>h", "<cmd>new<cr>")
-leadermap("n", "<leader>v", "<cmd>vnew<cr>")
-leadermap("n", "<leader>u", "<cmd>Packersync<cr>")
+keymap("n", "<leader>f", "<cmd>FZF<cr>", opts)
+keymap("n", "<leader>h", "<cmd>new<cr>", opts)
+keymap("n", "<leader>v", "<cmd>vnew<cr>", opts)
+keymap("n", "<leader>u", "<cmd>Packersync<cr>", opts)
+keymap("n", "<leader>d", "<cmd>Lex 30<cr>", opts)
+keymap("n", "<leader>e", "<cmd>Explore<cr>", opts)
 
 -- Modes
 --   normal_mode = "n",
@@ -39,7 +42,7 @@ keymap("n", "h", "<Nop>", opts)
 keymap("n", "<C-j>", "<C-w>h", opts)
 keymap("n", "<C-l>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
--- vim.cmd "nnoremap \\[1;5Q <C-w>l" -- lua method breaks after closing and reopening nvim
+-- vim.cmd "nnoremap \\[1;5Q <C-w>l" -- lua method broke after setting up. Fixed for now, but leaving this version in case issues return
 keymap("n", "\\[1;5Q", "<C-w>l", opts)   -- Bound terminal to treat ctrl+semicolon as ctrl+f2
 
 -- Resize with arrows
