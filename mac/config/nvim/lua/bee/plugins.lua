@@ -41,30 +41,32 @@ packer.init({
 
 -- Plugins
 return packer.startup(function(use)
+  -- Core --
   use { "wbthomason/packer.nvim" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
   use { "nvim-lua/popup.nvim" } -- Allows plugins to use popups instead of splits
-  use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
-  use { "numToStr/Comment.nvim" } -- Smart commenting
-  use { "JoosepAlviste/nvim-ts-context-commentstring" } -- Companion to Comment plugin, sets code language based on context so you can use different comment styles within the same file, based on what's being commented
-  use { "kyazdani42/nvim-web-devicons" } -- Adds NerdFont devicon support to Vim for plugins like treesitter to use. Lua fork of Ryanoasis
-  use { "kyazdani42/nvim-tree.lua" } -- Lua-based file explorer, replaces NERDTree?
+	use {"folke/which-key.nvim"} -- Keybind helper for commands you're typing
+  use { "nvim-tree/nvim-tree.lua" } -- Lua-based file explorer
+  use { "akinsho/toggleterm.nvim" } -- Allows persistent and toggle-able terminals within nvim
+  use { "lewis6991/impatient.nvim" } -- Speeds up loading nvim lua modules
+  use { "goolord/alpha-nvim" } -- Greeter for nvim
+
+  -- Bufferline --
   use { "akinsho/bufferline.nvim" } -- Adds a buffer line at top of nvim, emulates GUI IDEs
 	use { "moll/vim-bbye" } -- "Buffer Bye", it removes buffers intelligently and gives user options to do so as well
-  use { "nvim-lualine/lualine.nvim" } -- Vim Airline replacement
-  use { "akinsho/toggleterm.nvim" } -- Allows persistent and toggle-able terminals within nvim
   use { "ahmedkhalf/project.nvim" } -- Project management? Telescope integration too
-  use { "lewis6991/impatient.nvim" } -- Speeds up loading nvim lua modules
-  use { "lukas-reineke/indent-blankline.nvim" } -- Auto indents lines, even blank ones
-  use { "goolord/alpha-nvim" } -- Greeter for nvim
-	use {"folke/which-key.nvim"} -- Keybind helper for commands you're typing
 
+  -- Theming --
 	-- Colorschemes
-  use { "EdenEast/nightfox.nvim" }
+  use { "EdenEast/nightfox.nvim" } --Includes several themes, see website
 
   -- Statusline
-  use { 'feline-nvim/feline.nvim' }
+  use { "feline-nvim/feline.nvim" }
 
+  -- Characters
+  use { "kyazdani42/nvim-web-devicons" } -- Adds NerdFont devicon support to Vim for plugins like treesitter to use. Lua fork of Ryanoasis
+
+  -- Completions and Linting --
 	-- Cmp 
   use { "hrsh7th/nvim-cmp" } -- The completion plugin
   use { "hrsh7th/cmp-buffer" } -- buffer completions
@@ -73,12 +75,14 @@ return packer.startup(function(use)
 	use { "saadparwaiz1/cmp_luasnip" } -- snippet completions
 	use { "hrsh7th/cmp-nvim-lsp" } -- for lsp
 	use { "hrsh7th/cmp-nvim-lua" } -- for lsp
-  use { "saecki/crates.nvim",
+  use {
+    "saecki/crates.nvim",
     event = { "BufRead Cargo.toml" },
     config = function()
-      require('crates').setup()
+      require("crates").setup()
     end,
-  } -- rust completions
+  } -- Crates.io dependency helper + crates completions
+  use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
 
 	-- Snippets
   use { "L3MON4D3/LuaSnip" } --snippet engine
@@ -91,21 +95,31 @@ return packer.startup(function(use)
 	use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
   use { "RRethy/vim-illuminate" } -- Highlights other uses of word for LSP
 
-	-- Search-related plugins
-	use { "nvim-telescope/telescope.nvim" } -- list FZF
-  use { "mileszs/ack.vim" } -- Ack search
-  use { "junegunn/fzf",
-    run = "./install",
-  } -- Classic FZF search
+  -- Misc
+  use { "lukas-reineke/indent-blankline.nvim" } -- Auto indents lines, even blank ones
+  use { "numToStr/Comment.nvim" } -- Smart commenting
+  use { "JoosepAlviste/nvim-ts-context-commentstring" } -- Companion to Comment plugin, sets code language based on context so you can use different comment styles within the same file, based on what's being commented
 
-	-- Treesitter
-	use {	"nvim-treesitter/nvim-treesitter" } -- better command highlighting
+	-- Telescope search --
+	use { "nvim-telescope/telescope.nvim" } -- Telescope search
+  use {
+    "AckslD/nvim-neoclip.lua",
+    config = function()
+      require('neoclip').setup()
+    end,
+  } -- Clipboard history, searchable with Telescope
 
-	-- Git
+	-- Treesitter --
+	use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  } -- better highlighting
+  use { "p00f/nvim-ts-rainbow" } -- Rainbow parentheses for treesitter
+
+	-- Git --
 	use { "lewis6991/gitsigns.nvim" } -- git decorations in nvim
 
 	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
