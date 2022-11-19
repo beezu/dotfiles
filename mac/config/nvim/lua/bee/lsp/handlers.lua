@@ -52,19 +52,19 @@ M.setup = function()
 end
 
 local function lsp_highlight_document(client)
-  -- Set autocommands conditional on server_capabilities
-  if client.server_capabilities.documentHighlight then
-    vim.api.nvim_exec(
-      [[
+	-- Set autocommands conditional on server_capabilities
+	if client.server_capabilities.documentHighlight then
+		vim.api.nvim_exec(
+			[[
       augroup lsp_document_highlight
         autocmd! * <buffer>
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
     ]],
-      false
-    )
-  end
+			false
+		)
+	end
 end
 
 local function lsp_keymaps(bufnr)
@@ -101,7 +101,7 @@ M.on_attach = function(client, bufnr)
 	if not status_ok then
 		return
 	end
-  lsp_highlight_document(client)
+	lsp_highlight_document(client)
 	illuminate.on_attach(client)
 end
 

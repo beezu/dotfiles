@@ -2,7 +2,6 @@ local opts = { noremap = true, silent = true }
 
 -- local term_opts = { silent = true }
 
-
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
@@ -11,18 +10,18 @@ local keymap = vim.api.nvim_set_keymap
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
--- Ag plugin setting
-vim.g.ackprg = "ag --vimgrep --hidden"
-
 -- Leader keys
 keymap("n", "<leader>a", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>b", "<cmd>Bdelete!<cr>", opts)
 keymap("n", "<leader>c", "<cmd>lua require('telescope').extensions.neoclip.default()<cr>", opts)
-keymap("n", "<leader>d", "<cmd>Lex 30<cr>", opts)
-keymap("n", "<leader>e", "<cmd>Explore<cr>", opts)
+keymap("n", "<leader>d", "<cmd>NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>h", "<cmd>new<cr>", opts)
-keymap("n", "<leader>u", "<cmd>Packersync<cr>", opts)
-keymap("n", "<leader>v", "<cmd>vnew<cr>", opts)
+keymap("n", "<leader>H", "<cmd>lua _HTOP_TOGGLE()<cr>", opts)
+keymap("n", "<leader>h", "<cmd>split<cr>", opts)
+keymap("n", "<leader>n", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
+keymap("n", "<leader>t", "<cmd>tabnew<cr>", opts)
+keymap("n", "<leader>u", "<cmd>PackerSync<cr>", opts)
+keymap("n", "<leader>v", "<cmd>vsplit<cr>", opts)
 
 -- Modes
 --   normal_mode = "n",
@@ -33,17 +32,19 @@ keymap("n", "<leader>v", "<cmd>vnew<cr>", opts)
 --   command_mode = "c",
 
 -- Normal --
--- Better window navigation, modified arrows
+-- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+
 -- Rebind arrow keys
 -- keymap("n", "j", "h", opts)
 -- keymap("n", "k", "k", opts)
 -- keymap("n", "l", "j", opts)
 -- keymap("n", ";", "l", opts)
 -- keymap("n", "h", "<Nop>", opts)
+
 -- Better window navigation, modified arrows
 -- keymap("n", "<C-j>", "<C-w>h", opts)
 -- keymap("n", "<C-l>", "<C-w>j", opts)
@@ -58,8 +59,8 @@ keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<C-m>", ":bnext<CR>", opts)
-keymap("n", "<C-n>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -105,4 +106,3 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
