@@ -9,6 +9,8 @@ local servers = {
 	-- "yamlls",
 	"rust_analyzer",
 	"powershell_es",
+  "yamlls",
+  "dockerls"
 }
 
 local settings = {
