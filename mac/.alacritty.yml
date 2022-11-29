@@ -14,20 +14,20 @@ window:
   startup_mode: Windowed
   title: Alacritty
   dynamic_title: true
-scrolling:
+scrolling: 
   history: 100000
   multiplier: 2
-font:
-  normal:
-    family: Hasklug Nerd Font
+font: 
+  normal: 
+    family: CaskaydiaCove Nerd Font Mono
   bold:
-    family: Hasklug Nerd Font
+    family: CaskaydiaCove Nerd Font Mono
   italic:
-    family: Hasklug Nerd Font
+    family: CaskaydiaCove Nerd Font Mono
   bold_italic:
-    family: Hasklug Nerd Font
-  size: 16.0
-  offset:
+    family: CaskaydiaCove Nerd Font Mono
+  size: 15.0
+  offset: 
     x: 0
     y: 0
   glyph_offset:
@@ -65,29 +65,6 @@ colors:
     - { index: 16, color: '0x3ddbd9' }
     - { index: 17, color: '0xff7eb6' }
 
-# Colors (Gruvbox dark)
-#colors:
-#  primary:
-#    background: '0x282828'
-#    foreground: '0xebdbb2'
-#  normal:
-#    black:   '0x282828'
-#    red:     '0xcc241d'
-#    green:   '0x98971a'
-#    yellow:  '0xd79921'
-#    blue:    '0x458588'
-#    magenta: '0xb16286'
-#    cyan:    '0x689d6a'
-#    white:   '0xa89984'
-#  bright:
-#    black:   '0x928374'
-#    red:     '0xfb4934'
-#    green:   '0xb8bb26'
-#    yellow:  '0xfabd2f'
-#    blue:    '0x83a598'
-#    magenta: '0xd3869b'
-#    cyan:    '0x8ec07c'
-#    white:   '0xebdbb2'
   cursor:
     text: CellBackground
     cursor: CellForeground
@@ -113,8 +90,7 @@ mouse:
   triple_click: { threshold: 300 }
   hide_when_typing: false
   enabled:
-   - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
-  #           [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+     regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:) [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
      command: xdg-open
      post_processing: true
      mouse:
@@ -219,7 +195,6 @@ key_bindings:
   - { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
   - { key: Left,           mods: Alt,                        chars: "\x1bb"                }
   - { key: Right,          mods: Alt,                        chars: "\x1bf"                }
-  - { key: 41,             mods: Control,                    chars: "\\[1;5Q"              } # set ctrl+semicolon to ctrl+f2 for vim panel switch binding
   - { key: H,              mods: Alt,                        chars: "\x1bh"                }
   - { key: H,              mods: Shift|Alt,                  chars: "\x1bH"                }
   - { key: J,              mods: Alt,                        chars: "\x1bj"                }
