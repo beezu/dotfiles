@@ -1,17 +1,12 @@
 [aws]
-symbol = "  "
 
 [buf]
-symbol = " "
 
 [c]
-symbol = " "
 
 [conda]
-symbol = " "
 
 [dart]
-symbol = " "
 
 [directory]
 read_only = " "
@@ -20,72 +15,51 @@ read_only = " "
 command = "docker --version | sed 's/[^ ]* [^ ]*// ; s/,.*//'"
 detect_files = ["docker-compose.yml","docker-compose.yaml","Dockerfile"]
 style = "blue bold"
-symbol = " "
-format = "[via $symbol$output ]($style)"
+symbol = "🐳 "
+format = "[via](white)[ $symbol$output ]($style)"
 
 [docker_context]
 disabled = true
 
 [elixir]
-symbol = " "
 
 [elm]
-symbol = " "
 
 [git_branch]
-symbol = " "
 
 [golang]
-symbol = " "
 
 [haskell]
-symbol = " "
 
 [hg_branch]
-symbol = " "
 
 [java]
-symbol = " "
 
 [julia]
-symbol = " "
 
 [lua]
-symbol = " "
 
 [memory_usage]
-symbol = " "
 
 [meson]
-symbol = "喝 "
 
 [nim]
-symbol = " "
 
 [nix_shell]
-symbol = " "
 
 [nodejs]
-symbol = " "
 
 [package]
-symbol = " "
 
 [python]
-symbol = " "
 
 [rlang]
-symbol = "ﳒ "
 
 [ruby]
-symbol = " "
 
 [rust]
-symbol = " "
 
 [scala]
-symbol = " "
 
 [spack]
-symbol = "🅢 "
 
