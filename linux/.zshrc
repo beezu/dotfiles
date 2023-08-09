@@ -45,7 +45,7 @@ alias vim='nvim'
 # FZF aliases
 alias kp='ps -ef | fzf'
 alias vfzf='vim $(fzf)'
-alias efzf='vim $(rg --files --hidden | fzf -e)'
+alias efzf='vim $(fzf -e)'
 alias afzf='rg . | fzf --print0 -e'
 
 # Disable tab completion colors
