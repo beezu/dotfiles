@@ -1,6 +1,7 @@
 #!/bin/bash
 cd ~/
 git clone https://github.com/alacritty/alacritty && cd alacritty
+git checkout $(git tag --sort=creatordate | tail -1)
 
 # Check if Rust is installed, install if not
 if [[ -d $HOME/.cargo ]]
@@ -12,9 +13,9 @@ else
   export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-# Optional, install Hasklug Nerd Font from Homebrew
+# Install Hasklug Nerd Font from Homebrew
 brew tap homebrew/cask-fonts
-brew install --cask font-hasklug-nerd-font
+brew install --cask font-caskaydia-cove-nerd-font
 
 # Configure Rust and build app
 rustup target add x86_64-apple-darwin
@@ -26,7 +27,3 @@ make dmg-universal
 rsync -arhP --delete-before target/release/osx/Alacritty.app /Applications/
 rm -rf ~/alacritty
 
-# Check for existing alacritty config, download personal config if missing
-if ! [[ -e $HOME/.alacritty.yml ]]
-then curl -L https://raw.githubusercontent.com/beezu/dotfiles/master/mac/.alacritty.yml -o $HOME/.alacritty.yml
-fi

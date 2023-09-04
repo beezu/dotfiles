@@ -49,7 +49,7 @@ cursor = "CellForeground"
 text = "CellBackground"
 
 [cursor]
-blink_interval = 750
+blink_interval = 250
 unfocused_hollow = true
 
 [cursor.style]

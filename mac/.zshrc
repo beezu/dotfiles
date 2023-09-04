@@ -12,7 +12,7 @@ export UPDATE_ZSH_DAYS=7
 
 # Plugins list
 plugins=(git zsh-syntax-highlighting docker docker-compose macos mosh ripgrep \
-  rust thefuck vi-mode)
+  rust thefuck)
 
 # Allow stacking completion for docker plugin
 # .e. tab completion when using -it instead of requiring -i -t
@@ -34,28 +34,27 @@ export EDITOR='nvim'
 export HOMEBREW_PREFIX="/opt/homebrew"
 export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
 export HOMEBREW_NO_ANALYTICS=1
-alias brewup='brew update && brew services stop spacebar && \
-  brew services stop yabai && brew services stop skhd && brew upgrade \
-  && brew upgrade --cask && brew services \
-  start yabai && brew services start skhd && brew services start spacebar'
+alias brewup='brew update && yabai --stop-service \
+  skhd --stop-service && brew upgrade && brew upgrade --cask \
+  && yabai --start-service && skhd --start-service'
 
-# Set FZF to use the silver searcher
+# Set FZF to use ripgrep
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
 # Docker-related aliases
-alias colorpuke-docker='docker run --rm --log-driver none -it beezu/colorpuke'
-alias colorpuke='~/gits/dockerfiles/colorpuke/colorpuke.sh'
 alias rain='docker run --rm --log-driver none -it beezu/matrix-rain'
 alias cmatrix='docker run --rm --log-driver none -it beezu/cmatrix'
 alias pmatrix='docker run --rm --log-driver none -it beezu/pmatrix'
+alias rmatrix='docker run --rm --log-driver none -it beezu/rmatrix'
 alias docker-platform='docker run --rm mplatform/mquery'
 alias nf-test-fonts='docker run --rm -it beezu/nf-test-fonts'
-alias exo-powershell='docker run --platform=linux/amd64 --rm -it \
+alias exo-powershell='docker run --rm -it \
   -e POWERSHELL_TELEMETRY_OPTOUT=1 beezu/exo-powershell:latest'
-alias exo-powershell-preview='docker run --platform=linux/amd64 --rm -it \
-  -e POWERSHELL_TELEMETRY_OPTOUT=1 beezu/exo-powershell:2.0.6-preview6'
+alias dockerprune='docker buildx prune -a && docker volume prune -a && \
+  docker rm -fv $(docker ps -aq) && docker system prune -a'
 
-alias vim='nvim'
+# Misc aliases
+alias myip='curl https://ipecho.net/plain'
 
 # FZF aliases
 alias kp='ps -ef | fzf'
@@ -63,13 +62,21 @@ alias vfzf='vim $(fzf)'
 alias efzf='vim $(fzf -e)'
 alias afzf='rg . | fzf --print0 -e'
 
+# App replacement aliases
+alias vim='nvim'
+alias l='exa -alT -L 2 --icons'
+alias ls='exa -l --icons'
+alias lx='exa -alT --icons'
+alias grep='rg'
+alias top='btm'
+alias htop='btm'
+alias find='fd'
+alias sed='sd'
+alias cat='bat'
+
 # Xquartz alias and variable
 alias x11='open -a XQuartz && xhost + $IP'
-IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
-
-# VI Mode Settings
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
+IP=$(ifconfig en0 | rg inet | awk '$1=="inet" {print $2}')
 
 # Disable tab completion colors
 zstyle ':completion:*' list-colors
