@@ -1,4 +1,4 @@
-PATH=$HOME/.cargo/bin:/opt/homebrew/sbin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.fzf/bin:$HOME/Library/Python/3.9/lib/python/site-packages:/opt/X11/bin
+PATH=$HOME/.cargo/bin:/opt/homebrew/sbin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.fzf/bin:$HOME/Library/Python/3.9/lib/python/site-packages:/opt/X11/bin:$HOME/gits/sourcekit-lsp/.build/debug
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -30,28 +30,40 @@ bindkey "^[[1;5D" backward-word
 # Set editor
 export EDITOR='nvim'
 
+# Set Swift toolchain path for sourcekit-lsp
+export TOOLCHAIN_PATH='~/gits/sourcekit-lsp/.build/debug'
+
+# Set multi core XZ
+export XZ_DEFAULTS='-T 0 -9e'
+
 # Homebrew variables and alias
 export HOMEBREW_PREFIX="/opt/homebrew"
 export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
 export HOMEBREW_NO_ANALYTICS=1
-alias brewup='brew update && yabai --stop-service \
-  skhd --stop-service && brew upgrade && brew upgrade --cask \
+alias brewup='brew update \
+  && yabai --stop-service \
+  && skhd --stop-service \
+  && pkill Übersicht \
+  && brew upgrade \
+  && brew upgrade --cask \
+  && open -a Übersicht \
   && yabai --start-service && skhd --start-service'
 
 # Set FZF to use ripgrep
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
 # Docker-related aliases
+alias colorpuke-docker='docker run --rm --log-driver none -it beezu/colorpuke'
+alias colorpuke='~/gits/docker-gits/colorpuke/colorpuke.sh'
 alias rain='docker run --rm --log-driver none -it beezu/matrix-rain'
 alias cmatrix='docker run --rm --log-driver none -it beezu/cmatrix'
 alias pmatrix='docker run --rm --log-driver none -it beezu/pmatrix'
-alias rmatrix='docker run --rm --log-driver none -it beezu/rmatrix'
 alias docker-platform='docker run --rm mplatform/mquery'
 alias nf-test-fonts='docker run --rm -it beezu/nf-test-fonts'
 alias exo-powershell='docker run --rm -it \
   -e POWERSHELL_TELEMETRY_OPTOUT=1 beezu/exo-powershell:latest'
-alias dockerprune='docker buildx prune -a && docker volume prune -a && \
-  docker rm -fv $(docker ps -aq) && docker system prune -a'
+alias dockerprune='docker buildx prune -a ; docker volume prune -a ; \
+  docker rm -fv $(docker ps -aq) ; docker system prune -a'
 
 # Misc aliases
 alias myip='curl https://ipecho.net/plain'
@@ -70,9 +82,8 @@ alias lx='exa -alT --icons'
 alias grep='rg'
 alias top='btm'
 alias htop='btm'
-alias find='fd'
+# alias find='fd'
 alias sed='sd'
-alias cat='bat'
 
 # Xquartz alias and variable
 alias x11='open -a XQuartz && xhost + $IP'
@@ -81,5 +92,10 @@ IP=$(ifconfig en0 | rg inet | awk '$1=="inet" {print $2}')
 # Disable tab completion colors
 zstyle ':completion:*' list-colors
 
+# Swap cat for bat
+alias cat='bat'
+
 # Starship prompt
 eval "$(starship init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

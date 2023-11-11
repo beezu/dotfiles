@@ -1,7 +1,6 @@
 #!/bin/bash
 cd ~/
 git clone https://github.com/alacritty/alacritty && cd alacritty
-git checkout $(git tag --sort=creatordate | tail -1)
 
 # Check if Rust is installed, install if not
 if [[ -d $HOME/.cargo ]]

@@ -49,9 +49,11 @@ yabai -m rule --add app='^System Preferences$' manage=off
 yabai -m rule --add app='^System Settings$' manage=off
 yabai -m rule --add app='^Steam Helper$' manage=off
 yabai -m rule --add app='Steam Client WebHelper$' manage=off
+yabai -m rule --add app='Terminal Preview$' manage=off
+yabai -m rule --add app='Microsoft Edge$' manage=off
+yabai -m rule --add app='Parallels Desktop$' manage=off
 yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add title='Settings$' manage=off
-yabai -m rule --add title='Parallels Desktop$' manage=off
 yabai -m rule --add title='Control Center$' manage=off
 yabai -m rule --add title='Steam$' manage=off
 yabai -m rule --add title='Friends List$' manage=off
@@ -64,5 +66,9 @@ yabai -m rule --add title='Copy$' manage=off
 yabai -m rule --add title='Free Memory$' manage=off
 yabai -m rule --add title='Virtual Machine Library$' manage=off
 
-# leave room for Ubersicht
+# leave room for Spacebar
 yabai -m config external_bar all:26:0
+
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
