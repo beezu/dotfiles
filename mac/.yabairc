@@ -49,8 +49,6 @@ yabai -m rule --add app='^System Preferences$' manage=off
 yabai -m rule --add app='^System Settings$' manage=off
 yabai -m rule --add app='^Steam Helper$' manage=off
 yabai -m rule --add app='Steam Client WebHelper$' manage=off
-yabai -m rule --add app='Terminal Preview$' manage=off
-yabai -m rule --add app='Microsoft Edge$' manage=off
 yabai -m rule --add app='Parallels Desktop$' manage=off
 yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add title='Settings$' manage=off

@@ -1,8 +1,8 @@
 # change focus
-cmd - j : yabai -m window --focus west
-cmd - l : yabai -m window --focus south
+cmd - h : yabai -m window --focus west
+cmd - j : yabai -m window --focus south
 cmd - k : yabai -m window --focus north
-cmd - 0x29 : yabai -m window --focus east
+cmd - l : yabai -m window --focus east
 
 # (alt) change focus (using arrow keys)
 cmd - left  : yabai -m window --focus west
@@ -11,10 +11,10 @@ cmd - up    : yabai -m window --focus north
 cmd - right : yabai -m window --focus east
 
 # shift window in current workspace
-cmd + shift - j : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
-cmd + shift - l : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
+cmd + shift - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+cmd + shift - j : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
 cmd + shift - k : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
-cmd + shift - 0x29 : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+cmd + shift - l : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
 
 # alternatively, use the arrow keys
 cmd + shift - left : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
@@ -23,10 +23,10 @@ cmd + shift - up : yabai -m window --swap north || $(yabai -m window --display n
 cmd + shift - right : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
 
 # set insertion point in focused container
-cmd + ctrl - j : yabai -m window --insert west
-cmd + ctrl - l : yabai -m window --insert south
+cmd + ctrl - h : yabai -m window --insert west
+cmd + ctrl - j : yabai -m window --insert south
 cmd + ctrl - k : yabai -m window --insert north
-cmd + ctrl - 0x29 : yabai -m window --insert east
+cmd + ctrl - l : yabai -m window --insert east
 
 # (alt) set insertion point in focused container using arrows
 cmd + ctrl - left  : yabai -m window --insert west
@@ -35,22 +35,22 @@ cmd + ctrl - up    : yabai -m window --insert north
 cmd + ctrl - right : yabai -m window --insert east
 
 # move focused window to next/prev workspace
-cmd + shift - 1 : yabai -m window --space 1
-cmd + shift - 2 : yabai -m window --space 2
-cmd + shift - 3 : yabai -m window --space 3
-cmd + shift - 4 : yabai -m window --space 4
-cmd + shift - 5 : yabai -m window --space 5
-cmd + shift - 6 : yabai -m window --space 6
-cmd + shift - 7 : yabai -m window --space 7
-cmd + shift - 8 : yabai -m window --space 8
-cmd + shift - 9 : yabai -m window --space 9
-cmd + shift - 0 : yabai -m window --space 10
+cmd + shift - 1 : yabai -m window --space 1 && sketchybar --trigger windows_on_spaces
+cmd + shift - 2 : yabai -m window --space 2 && sketchybar --trigger windows_on_spaces
+cmd + shift - 3 : yabai -m window --space 3 && sketchybar --trigger windows_on_spaces
+cmd + shift - 4 : yabai -m window --space 4 && sketchybar --trigger windows_on_spaces
+cmd + shift - 5 : yabai -m window --space 5 && sketchybar --trigger windows_on_spaces
+cmd + shift - 6 : yabai -m window --space 6 && sketchybar --trigger windows_on_spaces
+cmd + shift - 7 : yabai -m window --space 7 && sketchybar --trigger windows_on_spaces
+cmd + shift - 8 : yabai -m window --space 8 && sketchybar --trigger windows_on_spaces
+cmd + shift - 9 : yabai -m window --space 9 && sketchybar --trigger windows_on_spaces
+cmd + shift - 0 : yabai -m window --space 10 && sketchybar --trigger windows_on_spaces
 
 # close focused window
 alt - q : yabai -m window --close
 
 # enter fullscreen mode for the focused container
-alt - f : yabai -m window --toggle zoom-fullscreen
+alt - f : yabai -m window --toggle zoom-fullscreen; sketchybar --triger window_focus
 
 # toggle window native fullscreen
 alt + shift - f : yabai -m window --toggle native-fullscreen
