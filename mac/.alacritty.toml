@@ -1,5 +1,3 @@
-ipc_socket = false
-live_config_reload = true
 
 [bell]
 animation = "EaseOutQuint"
@@ -18,7 +16,7 @@ dim_foreground = "#908caa"
 bright_foreground = "#e0def4"
 
 [colors.cursor]
-text = "#e0def4"
+text = "#232136"
 cursor = "#e0def4"
 
 [colors.vi_mode_cursor]
@@ -56,9 +54,9 @@ background = "#44415a"
 [colors.normal]
 black = "#393552"
 red = "#eb6f92"
-green = "#3e8fb0"
+blue = "#3e8fb0"
 yellow = "#f6c177"
-blue = "#9ccfd8"
+green = "#9ccfd8"
 magenta = "#c4a7e7"
 cyan = "#ea9a97"
 white = "#e0def4"
@@ -76,9 +74,9 @@ white = "#e0def4"
 [colors.dim]
 black = "#6e6a86"
 red = "#eb6f92"
-green = "#3e8fb0"
+blue = "#3e8fb0"
 yellow = "#f6c177"
-blue = "#9ccfd8"
+green = "#9ccfd8"
 magenta = "#c4a7e7"
 cyan = "#ea9a97"
 white = "#e0def4"
@@ -102,23 +100,24 @@ TERM = "xterm-256color"
 
 [font]
 #AppleFontSmoothing = true
-size = 15.0
+size = 18.0
 
 [font.bold]
-family = "CaskaydiaCove NFM"
+family = "Hasklug Nerd Font"
 
 [font.bold_italic]
-family = "CaskaydiaCove NFM"
+family = "Hasklug Nerd Font"
 
 [font.glyph_offset]
 x = 0
 y = 0
 
 [font.italic]
-family = "CaskaydiaCove NFM"
+family = "Hasklug Nerd Font"
 
 [font.normal]
-family = "CaskaydiaCove NFM"
+family = "Hasklug Nerd Font"
+style = "SemiBold"
 
 [font.offset]
 x = 0
@@ -666,7 +665,9 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 decorations = "none"
 dynamic_padding = true
 dynamic_title = true
-opacity = 0.9
+# my "normal" is .85
+# opacity = 0.85
+opacity = 1
 startup_mode = "Windowed"
 title = "Alacritty"
 
@@ -677,3 +678,7 @@ lines = 40
 [window.padding]
 x = 0
 y = 0
+
+[general]
+live_config_reload = true
+ipc_socket = false
